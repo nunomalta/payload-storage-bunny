@@ -35,14 +35,14 @@ export const bunnyStorage: BunnyPlugin =
         config: incomingConfig,
         enabled: Boolean(bunnyStorageOptions.options.clientUploads),
         extraClientHandlerProps: () => ({
-          prefix: '',
+          storage: bunnyStorageOptions.options.storage,
+          stream: bunnyStorageOptions.options.stream,
         }),
         serverHandler: getClientUploadHandler({
           access: typeof bunnyStorageOptions.options.clientUploads === 'object' 
             ? bunnyStorageOptions.options.clientUploads.access 
             : undefined,
           options: bunnyStorageOptions.options,
-          prefix: '',
         }),
         serverHandlerPath: '/bunny-client-upload',
       })

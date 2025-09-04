@@ -174,9 +174,16 @@ clientUploads: {
 }
 ```
 
-When enabled, files are uploaded directly from the browser to Bunny's servers through a secure proxy endpoint. This bypasses any file size limitations imposed by serverless platforms like Vercel.
+When enabled, files are uploaded directly from the browser to Bunny's servers, bypassing any file size limitations imposed by serverless platforms like Vercel.
 
-**Important**: Client uploads use a server proxy to keep your API keys secure. The client never has direct access to your Bunny API credentials.
+**Important Security Note**: Client uploads require your Bunny API keys to be available in the browser. While this is necessary for direct uploads, ensure your API keys have minimal required permissions and consider using environment variables that are only available in your build environment.
+
+**CORS Configuration**: You may need to configure CORS in your Bunny Storage Zone to allow uploads from your domain. In your Bunny Storage Zone settings, add your website's domain to the allowed origins.
+
+**How it works**:
+- Regular files: Uploaded directly to Bunny Storage from the browser
+- Video files: Server creates a video entry in Bunny Stream, then the browser uploads the video file directly
+- All uploads are authenticated and validated through your access control settings
 
 ### Cache Purging Configuration
 
