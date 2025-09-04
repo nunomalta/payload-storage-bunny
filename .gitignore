@@ -4,6 +4,9 @@
 # Build output
 /dist
 
+# Context
+/context
+
 # TypeScript
 *.tsbuildinfo
 
