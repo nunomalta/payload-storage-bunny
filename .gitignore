@@ -1,0 +1,22 @@
+# Dependencies
+/node_modules
+
+# Build output
+/dist
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment files
+.env
+.env*.local
+
+# Logs
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+
+# Next.js
+.next/
+/out/
